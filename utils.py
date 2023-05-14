@@ -3,10 +3,10 @@ from functools import wraps
 import numpy as np
 import torch
 import torch.backends.cudnn as cudnn
-from torch.autograd import Variable
 from torch.utils.data import DataLoader
-from torchvision.datasets.cifar import CIFAR10
+from torchvision.datasets import CIFAR10
 import torchvision.transforms as transforms
+
 
 
 def init_cifar_dataloader(root, batchSize):
@@ -22,11 +22,12 @@ def init_cifar_dataloader(root, batchSize):
         normalize
     ])
 
-    train_loader = DataLoader(CIFAR10(root, train=True, download=True, transform=transform_train),
-                              batch_size=batchSize, shuffle=True, num_workers=4, pin_memory=True)
+    trainset = CIFAR10(root, train=True, download=True, transform=transform_train)
+    train_loader = DataLoader(trainset, batch_size=batchSize, shuffle=True, num_workers=4, pin_memory=True)
     print(f'train set: {len(train_loader.dataset)}')
-    test_loader = DataLoader(CIFAR10(root, train=False, download=True, transform=transform_test),
-                             batch_size=batchSize * 8, shuffle=False, num_workers=4, pin_memory=True)
+
+    testset = CIFAR10(root, train=False, download=True, transform=transform_test)
+    test_loader = DataLoader(testset, batch_size=batchSize * 4, shuffle=False, num_workers=4, pin_memory=True)
     print(f'val set: {len(test_loader.dataset)}')
 
     return train_loader, test_loader
@@ -48,9 +49,10 @@ def timing(f):
 def compute_result(dataloader, net):
     bs, clses = [], []
     net.eval()
-    for img, cls in dataloader:
-        clses.append(cls)
-        bs.append(net(Variable(img.cuda(), volatile=True)).data.cpu())
+    with torch.no_grad():
+        for img, cls in dataloader:
+            clses.append(cls)
+            bs.append(net(img.cuda()).data.cpu())
     return torch.sign(torch.cat(bs)), torch.cat(clses)
 
 
@@ -76,7 +78,7 @@ def compute_mAP(trn_binary, tst_binary, trn_label, tst_label):
 
 def choose_gpu(i_gpu):
     """choose current CUDA device"""
-    torch.cuda.device(i_gpu).__enter__()
+    torch.cuda.set_device(i_gpu)
     cudnn.benchmark = True
 
 
