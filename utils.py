@@ -9,6 +9,7 @@ import torchvision.transforms as transforms
 
 
 
+
 def init_cifar_dataloader(root, batchSize):
     """load dataset"""
     normalize = transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))
