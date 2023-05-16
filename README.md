@@ -1,5 +1,7 @@
 # DSH_DeepSupervisedHashing
 A new version for https://github.com/weixu000/DSH-pytorch
+# Instruction(说明)
+* PR——cruves是一个计算PR曲线指标的模块 ， save_mat是一个把模型生成的哈希码和标签保存为.mat文件的模块
 # where you can find the parper
 -PyTorch implementation of paper [Deep Supervised Hashing for Fast Image Retrieval](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Liu_Deep_Supervised_Hashing_CVPR_2016_paper.pdf)
 # It is a brandnew version of DSH_DeepSupervisedHashing 
