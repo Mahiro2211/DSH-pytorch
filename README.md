@@ -5,6 +5,7 @@ A new version for https://github.com/weixu000/DSH-pytorch
 
 # Instruction(说明)
 * mat文件的保存一定要这样(mat file must be saved like this)
+* 可以使用**python run.py**运行运算指标的程序，但是我最好建议你打开去自己设置它的参数
 ```python
 result_dict = {
         'q_img' : query_img ,
