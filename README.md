@@ -1,5 +1,8 @@
 # DSH_DeepSupervisedHashing
 A new version for https://github.com/weixu000/DSH-pytorch
+2022-5-21更新 object文件夹可以轻松帮你评估6个指标（mAP,PRcurve,NDCG@1000,TopK-Precision,TopK-Recall,P@H<=2)
+2022-5-21updated dictory named object will help you easily predict six indexes （mAP,PRcurve,NDCG@1000,TopK-Precision,TopK-Recall,P@H<=2) 
+
 # Instruction(说明)
 * PR——cruves是一个计算PR曲线指标的模块 ， save_mat是一个把模型生成的哈希码和标签保存为.mat文件的模块
 # where you can find the parper
@@ -21,7 +24,13 @@ pyhon main.py -h
 ```
 ## packages
 pytorch == 1.12.0 + cu113
+
 torchvision == 0.13.0 + cu113
+
 tqdm
-scipy -> io.loadmat
+
+scipy
+
+tornado
+
 matplotlib
