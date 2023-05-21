@@ -4,6 +4,15 @@ A new version for https://github.com/weixu000/DSH-pytorch
 * 2022-5-21updated dictory named object will help you easily predict six indexes （mAP,PRcurve,NDCG@1000,TopK-Precision,TopK-Recall,P@H<=2) 
 
 # Instruction(说明)
+* mat文件的保存一定要这样(mat file must be saved like this)
+```python
+result_dict = {
+        'q_img' : query_img ,
+        'r_img' : retrieval_img ,
+        'q_l' : query_label ,
+        'r_l' : retrieval_label
+    }
+```
 * PR——cruves是一个计算PR曲线指标的模块 ， save_mat是一个把模型生成的哈希码和标签保存为.mat文件的模块
 # where you can find the parper
 -PyTorch implementation of paper [Deep Supervised Hashing for Fast Image Retrieval](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Liu_Deep_Supervised_Hashing_CVPR_2016_paper.pdf)
