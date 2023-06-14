@@ -1,7 +1,8 @@
 # DSH_DeepSupervisedHashing
 A new version for https://github.com/weixu000/DSH-pytorch
-* 2022-5-21更新 object文件夹可以轻松帮你评估6个指标（mAP,PRcurve,NDCG@1000,TopK-Precision,TopK-Recall,P@H<=2)
-* 2022-5-21updated dictory named object will help you easily predict six indexes （mAP,PRcurve,NDCG@1000,TopK-Precision,TopK-Recall,P@H<=2) 
+* 2023-6-14说明 ：原有的复现代码并不适合多标签任务分类，需要更改相关损失函数
+* 2023-5-21更新 object文件夹可以轻松帮你评估6个指标（mAP,PRcurve,NDCG@1000,TopK-Precision,TopK-Recall,P@H<=2)
+* 2023-5-21updated dictory named object will help you easily predict six indexes （mAP,PRcurve,NDCG@1000,TopK-Precision,TopK-Recall,P@H<=2) 
 
 # Instruction(说明)
 * mat文件的保存一定要这样(mat file must be saved like this)
